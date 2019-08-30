@@ -30,3 +30,22 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 UPDATE `oc_category_description` SET `meta_title`="", `meta_description`="" WHERE 1
 
 UPDATE wp_posts SET post_content = REPLACE(post_content,'http://xn--80ajaajgbqmnbkgpb1b2c.xn--p1ai', '');
+
+<script type="text/javascript">
+	
+function track(event) {
+    if (event) {
+        if ('undefined' !== typeof Ya && 'undefined' !== typeof Ya._metrika) {
+            $.each(Ya._metrika.counters, function (key, counter) {
+                counter.reachGoal(event, {URL: document.location.href});
+                console.log('YM tracking: ' + event);
+            });
+        }
+        if ('undefined' !== typeof ga) {
+			ga(ga.getAll()[0].get('name')+'.send', 'pageview', '/virtual/' + event);
+            console.log('GA tracking: ' + event);
+        }
+    }
+}
+
+</script>
